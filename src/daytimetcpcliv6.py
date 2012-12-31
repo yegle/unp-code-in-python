@@ -6,6 +6,7 @@ from __future__ import (unicode_literals, absolute_import,
 
 import sys
 import socket
+import constants as const
 from misc import *
 
 if __name__ == '__main__':
@@ -25,6 +26,6 @@ if __name__ == '__main__':
     except ConnectionError as e:
         err_sys(e, msg='connection error')
 
-    line = sockfd.recv(1024)
+    line = sockfd.recv(const.MAXLINE)
 
     print(line)

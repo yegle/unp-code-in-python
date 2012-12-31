@@ -5,6 +5,7 @@ from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
 import socket
+import constants as const
 from datetime import datetime
 
 if __name__ == '__main__':
@@ -15,7 +16,7 @@ if __name__ == '__main__':
     listen_addr = ('', 13)
 
     listenfd.bind(listen_addr)
-    listenfd.listen(1)
+    listenfd.listen(const.LISTENQ)
 
     while True:
         connfd, remote_addr = listenfd.accept()
