@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # Creating a socket
     # same like the assignment to sockfd
     # in the original C code
-    sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
     try:
         sockfd.connect(address)
