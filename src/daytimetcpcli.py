@@ -18,6 +18,8 @@ if __name__ == '__main__':
     # Creating a socket
     # same like the assignment to sockfd
     # in the original C code
+    # I didn't wrap it with try-except because
+    # I don't know what exception will be raised here
     sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
     try:
