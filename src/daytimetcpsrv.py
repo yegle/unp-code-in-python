@@ -19,6 +19,10 @@ if __name__ == '__main__':
     listenfd.listen(const.LISTENQ)
 
     while True:
+        # This is a difference between C version of accept
+        # and Python version of accept. Python will return
+        # the socket object and remote address at the same
+        # time
         connfd, remote_addr = listenfd.accept()
 
         # XXX: in Python, socket works with bytes
