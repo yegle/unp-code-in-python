@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
         # XXX: in Python, socket works with bytes
         # So this code may only work on Python3
-        # since str in py3k is unicode
+        # since I assume str is unicode here
         now = str(datetime.now()).encode('utf-8')
         connfd.send(now)
         connfd.close()
