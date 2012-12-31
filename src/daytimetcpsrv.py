@@ -11,6 +11,7 @@ if __name__ == '__main__':
     listenfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
     # Listen on any local IP, and port 13
+    # Note: empty address '' represents INADDR_ANY
     listen_addr = ('', 13)
 
     listenfd.bind(listen_addr)
