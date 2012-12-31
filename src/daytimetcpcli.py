@@ -10,11 +10,12 @@ import constants as const
 from misc import *
 
 if __name__ == '__main__':
-    if len(sys.argv) !=2:
+    try:
+        # This is an AF_INET address defination
+        address = (sys.argv[1], 13)
+    except IndexError:
+        # more pythonic than checking argv length
         err_quit('usage: %s <IPAddress>' % (sys.argv[0]))
-
-    # This is an AF_INET address defination
-    address = (sys.argv[1], 13)
 
     # Creating a socket
     # same like the assignment to sockfd

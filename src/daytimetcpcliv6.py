@@ -10,11 +10,11 @@ import constants as const
 from misc import *
 
 if __name__ == '__main__':
-    if len(sys.argv) !=2:
+    try:
+        # This is an AF_INET6 address defination
+        address = (sys.argv[1], 13)
+    except IndexError:
         err_quit('usage: %s <IPv6Address>' % (sys.argv[0]))
-
-    # This is an AF_INET6 address defination
-    address = (sys.argv[1], 13)
 
     # Creating a socket
     # same like the assignment to sockfd
