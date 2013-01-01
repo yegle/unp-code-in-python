@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     try:
         sockfd.connect(address)
-    except ConnectionError as e:
+    except socket.error as e:
         err_sys(e, msg='connection error')
 
     line = sockfd.recv(const.MAXLINE)
