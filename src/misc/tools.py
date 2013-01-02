@@ -6,6 +6,7 @@ from __future__ import (unicode_literals, absolute_import,
 
 import logging
 import sys
+from . import constants as const
 
 def err_quit(msg=None):
     err_do_it('ERROR', None, msg)
@@ -27,3 +28,14 @@ def err_do_it(level, e, msg):
         logging.warning(text)
     elif level == 'ERROR':
         logging.error(text)
+
+def str_echo(fd):
+    try:
+        while True:
+            b = fd.recv(const.MAXLINE)
+            if len(b) > 0:
+                fd.send(b)
+            else:
+                break
+    except socket.error as e:
+        error_sys(e, msg='str_echo read error')
