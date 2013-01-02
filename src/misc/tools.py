@@ -39,3 +39,17 @@ def str_echo(fd):
                 break
     except socket.error as e:
         error_sys(e, msg='str_echo read error')
+
+def str_cli(fp, sockfd):
+    while True:
+        line = fp.readline(const.MAXLINE).strip()
+        if not line:
+            break
+
+        sockfd.send(line.encode('utf-8'))
+
+        recv = sockfd.recv(const.MAXLINE)
+        if not recv:
+            err_quit(msg='str_cli: server terminated prematurely')
+
+        print(recv)
