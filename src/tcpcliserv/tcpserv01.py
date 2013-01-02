@@ -24,9 +24,10 @@ if __name__ == '__main__':
         connfd, remote_addr = listenfd.accept()
 
         # XXX:
-        # there's a bug in this code but I cannot figure out
-        # after the client disconnects, the child process still exists
-        # hope someone can fix my code
+        # There's a bug in this code that it doesn't handle the exit of
+        # child process. Upon child process exit, this process will
+        # become a zombie process. UNP is aware of this problem and
+        # there's another example that fixes this problem
         if not os.fork():
             # close listen fd in child process
             # not actual close, just minus its reference count
