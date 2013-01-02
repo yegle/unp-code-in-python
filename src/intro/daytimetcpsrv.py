@@ -5,7 +5,9 @@ from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
 import socket
-import constants as const
+import sys
+sys.path.append('..')
+from misc import constants as const
 from datetime import datetime
 
 if __name__ == '__main__':
