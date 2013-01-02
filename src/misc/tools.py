@@ -6,6 +6,7 @@ from __future__ import (unicode_literals, absolute_import,
 
 import logging
 import sys
+import socket
 from . import constants as const
 
 def err_quit(msg=None):
