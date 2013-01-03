@@ -26,6 +26,14 @@ if __name__ == '__main__':
     signal.siginterrupt(signal.SIGCHLD, False)
 
     while True:
+        # XXX
+        # In Python, socket.accept() is written in C so it will block
+        # the main process from receiving the SIGCHLD signal
+        # Thus the child process will remain in zombie status untill
+        # next connection from client and this accept returns.
+        #
+        # By setting up timeout to listenfd and wrap accept in a loop is
+        # a solution but not a perfect one.
         connfd, remote_addr = listenfd.accept()
 
         if not os.fork():
