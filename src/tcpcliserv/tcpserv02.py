@@ -23,12 +23,11 @@ if __name__ == '__main__':
     listenfd.listen(const.LISTENQ)
 
     signal.signal(signal.SIGCHLD, sig_chld)
+    signal.siginterrupt(signal.SIGCHLD, False)
 
     while True:
         connfd, remote_addr = listenfd.accept()
 
-        # XXX: this script will quit with InterruptedError exception
-        # when child process's SIGCHLD signal is handled
         if not os.fork():
             # close listen fd in child process
             # not actual close, just minus its reference count
