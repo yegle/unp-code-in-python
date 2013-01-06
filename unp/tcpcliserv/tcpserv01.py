@@ -7,11 +7,10 @@ from __future__ import (unicode_literals, absolute_import,
 import os
 import sys
 import socket
-sys.path.append('..')
-from misc import constants as const
-from misc import tools
+from ..misc import constants as const
+from ..misc import tools
 
-if __name__ == '__main__':
+def main(prog, args):
     listenfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
     # empty string means INADDR_ANY

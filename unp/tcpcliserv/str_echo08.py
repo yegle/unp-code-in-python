@@ -5,9 +5,8 @@ from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
 import sys
-sys.path.append('..')
-from misc import constants as const
-from misc import tools
+from ..misc import constants as const
+from ..misc import tools
 import socket
 
 def str_echo(fd):
