@@ -5,17 +5,18 @@ from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
 import sys
-sys.path.append('..')
 import socket
-from misc import constants as const
-from misc.tools import *
+from ..misc import constants as const
+from ..misc import tools
 
-if __name__ == '__main__':
-    try:
-        # This is an AF_INET6 address defination
-        address = (sys.argv[1], 13)
-    except IndexError:
-        err_quit('usage: %s <IPv6Address>' % (sys.argv[0]))
+from .daytimetcpcli import parse
+
+def main(prog, args):
+    parsed_args = parse(prog, args)
+    ip = parsed_args.ip
+
+    # This is an AF_INET6 address defination
+    address = (ip, 13)
 
     # Creating a socket
     # same like the assignment to sockfd
@@ -25,7 +26,7 @@ if __name__ == '__main__':
     try:
         sockfd.connect(address)
     except socket.error as e:
-        err_sys(e, msg='connection error')
+        tools.err_sys(e, msg='connection error')
 
     line = sockfd.recv(const.MAXLINE)
 
