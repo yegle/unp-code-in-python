@@ -7,11 +7,10 @@ from __future__ import (unicode_literals, absolute_import,
 import socket
 import sys
 import logging
-sys.path.append('..')
-from misc import constants as const
+from ..misc import constants as const
 from datetime import datetime
 
-if __name__ == '__main__':
+def main(prog, args):
     listenfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
     # Listen on any local IP, and port 13
