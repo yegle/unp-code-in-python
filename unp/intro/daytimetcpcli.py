@@ -5,18 +5,22 @@ from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
 import sys
-sys.path.append('..')
+import os
 import socket
-from misc import constants as const
-from misc.tools import *
+import argparse
 
-if __name__ == '__main__':
-    try:
-        # This is an AF_INET address defination
-        address = (sys.argv[1], 13)
-    except IndexError:
-        # more pythonic than checking argv length
-        err_quit('usage: %s <IPAddress>' % (sys.argv[0]))
+from ..misc import constants as const
+from ..misc import tools
+
+def parse(prog, args):
+    parser = argparse.ArgumentParser(prog=prog)
+    parser.add_argument('ip')
+    return parser.parse_args(args)
+
+def main(prog, args):
+    parsed_args = parse(prog, args)
+    ip = parsed_args.ip
+    address = (ip, 13)
 
     # Creating a socket
     # same like the assignment to sockfd
@@ -28,7 +32,7 @@ if __name__ == '__main__':
     try:
         sockfd.connect(address)
     except socket.error as e:
-        err_sys(e, msg='connection error')
+        tools.err_sys(e, msg='connection error')
 
     line = sockfd.recv(const.MAXLINE)
 
