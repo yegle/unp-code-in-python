@@ -7,7 +7,7 @@ from __future__ import (unicode_literals, absolute_import,
 import struct
 import platform
 
-if __name__ == '__main__':
+def main(prog, args):
     print(platform.platform(), end=': ')
 
     # We use the same idea in the original C code to detect the endian
