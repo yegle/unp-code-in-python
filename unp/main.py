@@ -8,6 +8,7 @@ import argparse
 import os
 import sys
 import unp
+import subprocess
 from importlib import import_module
 
 class UNPCommand(object):
@@ -53,6 +54,8 @@ class UNPCommand(object):
         print(self.file)
 
     def edit(self):
-        pass
+        editor = os.environ.get('EDITOR', None) or 'vim'
+        # XXX: security problem?
+        subprocess.call([editor, self.file])
 
 command = UNPCommand()
