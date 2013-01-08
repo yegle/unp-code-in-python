@@ -32,24 +32,25 @@ class UNPCommand(object):
         self.parser.add_argument('args', nargs=argparse.REMAINDER)
         self.args = self.parser.parse_args()
 
-    def run(self):
+        self.file = os.path.join(
+            os.path.dirname(__file__),
+            self.args.target
+        )
+
         target = self.args.target
         if target.endswith('.py') or target.endswith('.c'):
-            name = '.'.join(target.split('.')[:-1]).replace('/','.')
+            module_name = '.'.join(target.split('.')[:-1]).replace('/', '.')
         else:
-            name = target.replace('/', '.')
+            module_name = target.replace('/', '.')
+        self.main = import_module('%s.%s' % ('unp', module_name), package='unp').main
 
-        name = '%s.%s' % ('unp', name)
-        main = import_module(name, package='unp').main
-
+    def run(self):
         prog = '%s %s %s' % (os.path.basename(sys.argv[0]),
                              self.args.operation, self.args.target)
-        main(prog, self.args.args)
+        self.main(prog, self.args.args)
 
     def show(self):
-        target = self.args.target
-        print('Show: %s' % (target,))
-        print(self.args)
+        print(self.file)
 
     def edit(self):
         pass
