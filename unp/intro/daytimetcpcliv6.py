@@ -11,6 +11,7 @@ from ..misc import tools
 
 from .daytimetcpcli import parse
 
+
 def main(prog, args):
     parsed_args = parse(prog, args)
     ip = parsed_args.ip

@@ -7,6 +7,7 @@ from __future__ import (unicode_literals, absolute_import,
 import struct
 import platform
 
+
 def main(prog, args):
     print(platform.platform(), end=': ')
 

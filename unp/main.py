@@ -11,6 +11,7 @@ import unp
 import subprocess
 from importlib import import_module
 
+
 class UNPCommand(object):
     def __init__(self):
         self.parser = argparse.ArgumentParser(
@@ -46,7 +47,8 @@ class UNPCommand(object):
             module_name = '.'.join(target.split('.')[:-1]).replace('/', '.')
         else:
             module_name = target.replace('/', '.')
-        return import_module('%s.%s' % ('unp', module_name), package='unp').main
+        return import_module('%s.%s' % ('unp', module_name),
+                             package='unp').main
 
     def run(self):
         prog = '%s %s %s' % (os.path.basename(sys.argv[0]),

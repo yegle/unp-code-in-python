@@ -12,10 +12,12 @@ import argparse
 from ..misc import constants as const
 from ..misc import tools
 
+
 def parse(prog, args):
     parser = argparse.ArgumentParser(prog=prog)
     parser.add_argument('ip')
     return parser.parse_args(args)
+
 
 def main(prog, args):
     parsed_args = parse(prog, args)

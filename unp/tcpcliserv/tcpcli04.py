@@ -10,6 +10,7 @@ from ..misc import constants as const
 from ..misc import tools
 from .tcpcli01 import parse
 
+
 def main(prog, args):
     parsed_args = parse(prog, args)
     ip = parsed_args.ip
@@ -17,7 +18,7 @@ def main(prog, args):
     servaddr = (ip, const.SERV_PORT)
     sockfds = list()
 
-    for i in range(0,5):
+    for i in range(0, 5):
         sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
         try:
             sockfd.connect(servaddr)
