@@ -7,11 +7,6 @@ from __future__ import (unicode_literals, absolute_import,
 import sys
 from setuptools import setup, find_packages
 
-if sys.version_info < (2,7):
-    extra_dep = ['argparse', 'importlib']
-else:
-    extra_dep = []
-
 setup(
     name='unp',
     version='0.0.1',
@@ -25,5 +20,4 @@ setup(
             'unp = unp.main:command',
         ]
     },
-    install_requires=[] + extra_dep
 )
