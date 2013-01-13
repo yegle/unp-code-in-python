@@ -11,13 +11,17 @@ from ..misc import tools
 
 from .daytimetcpcli import parse
 
+def parse(prog, args):
+    parser = argparse.ArgumentParser(prog=prog)
+    parser.add_argument('ip')
+    parser.add_argument('port', default=13, type=int)
+    return parser.parse_args(args)
 
 def main(prog, args):
     parsed_args = parse(prog, args)
-    ip = parsed_args.ip
 
     # This is an AF_INET6 address defination
-    address = (ip, 13)
+    address = (parsed_args.ip, parsed_args.port)
 
     # Creating a socket
     # same like the assignment to sockfd
