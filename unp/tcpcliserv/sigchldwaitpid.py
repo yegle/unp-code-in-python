@@ -8,6 +8,7 @@ import os
 import logging
 import signal
 
+
 def sig_chld(signo, ignored):
     # XXX:
     # Definately some race condition happened here, haven't figured out

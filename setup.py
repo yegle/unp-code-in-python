@@ -14,7 +14,7 @@ setup(
     url='https://github.com/yegle/unp-code-in-python',
     platforms='any',
     packages=find_packages(),
-    entry_points = {
+    entry_points={
         'console_scripts': [
             'unp = unp.main:command',
         ]

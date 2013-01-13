@@ -10,6 +10,7 @@ import logging
 from ..misc import constants as const
 from datetime import datetime
 
+
 def main(prog, args):
     listenfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
@@ -28,8 +29,8 @@ def main(prog, args):
         # the socket object and remote address at the same
         # time
         connfd, remote_addr = listenfd.accept()
-        logging.info('Connection from %s, port %s' % (remote_addr[0],
-                                                     remote_addr[1]))
+        logging.info('Connection from %s, port %s' % (
+            remote_addr[0], remote_addr[1]))
 
         # XXX: in Python, socket works with bytes
         # So this code may only work on Python3

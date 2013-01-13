@@ -9,6 +9,7 @@ from ..misc import constants as const
 from ..misc import tools
 import socket
 
+
 def str_echo(fd):
     try:
         while True:

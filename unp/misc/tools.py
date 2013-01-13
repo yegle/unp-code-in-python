@@ -9,13 +9,16 @@ import sys
 import socket
 from . import constants as const
 
+
 def err_quit(msg=None):
     err_do_it('ERROR', None, msg)
     sys.exit(1)
 
+
 def err_sys(e, msg=None):
     err_do_it('ERROR', e, msg)
     sys.exit(1)
+
 
 def err_do_it(level, e, msg):
     if e:
@@ -30,6 +33,7 @@ def err_do_it(level, e, msg):
     elif level == 'ERROR':
         logging.error(text)
 
+
 def str_echo(fd):
     try:
         while True:
@@ -40,6 +44,7 @@ def str_echo(fd):
                 break
     except socket.error as e:
         error_sys(e, msg='str_echo read error')
+
 
 def str_cli(fp, sockfd):
     while True:
