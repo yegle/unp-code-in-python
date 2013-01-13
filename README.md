@@ -1,18 +1,19 @@
 unp-code-in-python
 ==================
 
-Unix Network Programming code in Python3
+Unix Network Programming code in Python
 
 ## Why
 
 Python is more expressive than C
 
-## Why Python3
+## Python Version?
 
-Why python2?
+The unit tests cover Python2.7 and Python3.3
 
-Besides, most codes should be able to run under Python 2.6 or 2.7 (maybe
-needs some import from `__future__`)
+Python2.6 is not supported because it lacks lots of good stuff which is available in Python2.7 (things backported from py3k)
+
+In py3k series, only Python3.3 is supported.
 
 ## I found a bug
 
