@@ -4,7 +4,13 @@
 from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
 
+import sys
 from setuptools import setup, find_packages
+
+if sys.version_info < (2,7):
+    extra_dep = ['argparse',]
+else:
+    extra_dep = []
 
 setup(
     name='unp',
@@ -18,5 +24,6 @@ setup(
         'console_scripts': [
             'unp = unp.main:command',
         ]
-    }
+    },
+    install_requires=[] + extra_dep
 )
