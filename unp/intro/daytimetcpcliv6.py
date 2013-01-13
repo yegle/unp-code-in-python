@@ -6,6 +6,7 @@ from __future__ import (unicode_literals, absolute_import,
 
 import sys
 import socket
+import argparse
 from ..misc import constants as const
 from ..misc import tools
 
@@ -35,4 +36,4 @@ def main(prog, args):
 
     line = sockfd.recv(const.MAXLINE)
 
-    print(line)
+    print(line.decode('utf-8'))

@@ -13,12 +13,12 @@ from datetime import datetime
 def parse(prog, args):
     parser = argparse.ArgumentParser(
         prog=prog,
-        description='Daytime TCP Server for IPv4',
+        description='Daytime TCP Server for IPv6',
     )
     parser.add_argument(
         'ip',
-        help='IP Address to listen to. (default 0.0.0.0)',
-        default='0.0.0.0',
+        help='IP Address to listen to. (default ::1)',
+        default='::1',
         nargs='?'
     )
     parser.add_argument(
@@ -33,7 +33,7 @@ def parse(prog, args):
 def main(prog, args):
     parsed_args = parse(prog, args)
 
-    listenfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
+    listenfd = socket.socket(socket.AF_INET6, socket.SOCK_STREAM, 0)
 
     ip = '' if parsed_args.ip == '::1' else parsed_args.ip
 

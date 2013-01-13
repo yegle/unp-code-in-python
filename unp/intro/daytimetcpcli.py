@@ -39,4 +39,4 @@ def main(prog, args):
 
     line = sockfd.recv(const.MAXLINE)
 
-    print(line)
+    print(line.decode('utf-8'))
