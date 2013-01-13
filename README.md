@@ -3,6 +3,8 @@ unp-code-in-python
 
 Unix Network Programming code in Python
 
+[![Build Status](https://travis-ci.org/yegle/unp-code-in-python.png)](https://travis-ci.org/yegle/unp-code-in-python)
+
 ## Why
 
 Python is more expressive than C
