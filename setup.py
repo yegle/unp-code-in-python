@@ -8,7 +8,7 @@ import sys
 from setuptools import setup, find_packages
 
 if sys.version_info < (2,7):
-    extra_dep = ['argparse',]
+    extra_dep = ['argparse', 'importlib']
 else:
     extra_dep = []
 
