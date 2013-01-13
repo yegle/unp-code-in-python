@@ -25,19 +25,19 @@ except ImportError:
 class TestDaytimeTCPV4(unittest.TestCase):
     def setUp(self):
         self.port = random.randint(1025, 65535)
-        cmd = ('unp', 'run', 'intro/daytimetcpsrv.py', '', str(self.port))
+        cmd = ('unp', 'run', 'intro/daytimetcpsrvv6.py', '', str(self.port))
         self.server_pid = subprocess.Popen(cmd).pid
         time.sleep(1)
 
     def tearDown(self):
         os.kill(self.server_pid, signal.SIGTERM)
 
-    def test_ipv4_client(self):
+    def test_ipv6_client(self):
         output = StringIO()
         old_stdout = sys.stdout
         sys.stdout = output
-        from unp.intro import daytimetcpcli
-        daytimetcpcli.main('test_daytimetcpcli', ['0.0.0.0', str(self.port)])
+        from unp.intro import daytimetcpcliv6
+        daytimetcpcliv6.main('test_daytimetcpcliv6', ['::1', str(self.port)])
         sys.stdout = old_stdout
         delta = datetime.now() - datetime.strptime(
             output.getvalue(),
