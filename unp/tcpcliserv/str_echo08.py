@@ -22,4 +22,4 @@ def str_echo(fd):
             else:
                 fd.send('input error\n'.encode('utf-8'))
     except socket.error as e:
-        tools.error_sys(e, msg='str_echo read error')
+        tools.err_sys(e, msg='str_echo read error')
